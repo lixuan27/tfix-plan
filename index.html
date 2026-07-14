@@ -343,81 +343,85 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
   <p class="lab rv"><i>09</i> &nbsp; the architecture, training above and inference below</p>
   <h2 class="rv">Click any box for the model, the data, and the rule it follows.</h2>
   <figure class="rv">
-  <svg viewBox="0 0 1120 600" id="arch">
-    <rect x="-14" y="28" width="1148" height="232" rx="8" class="zone"/>
-    <text x="0" y="18" class="L" style="fill:var(--indigo)">TRAINING, BY RECONSTRUCTION, WITH ZERO EDITED VIDEO</text>
+  <svg viewBox="0 0 1180 620" id="arch">
+    <rect x="-16" y="34" width="1212" height="240" rx="8" class="zone"/>
+    <text x="0" y="22" class="L" style="fill:var(--indigo)">TRAINING, BY RECONSTRUCTION, WITH ZERO EDITED VIDEO</text>
 
     <g class="hit on" data-t="t1">
-      <rect x="0" y="76" width="190" height="104" rx="4" class="B t"/>
-      <text x="95" y="120" class="T" text-anchor="middle" style="fill:var(--teal)">clean video</text>
-      <text x="95" y="150" class="L" text-anchor="middle" style="fill:var(--teal)">THE TARGET</text>
+      <rect x="0" y="82" width="200" height="112" rx="4" class="B t"/>
+      <text x="100" y="126" class="T" text-anchor="middle" style="fill:var(--teal)">clean video</text>
+      <text x="100" y="156" class="L" text-anchor="middle" style="fill:var(--teal)">GROUND TRUTH</text>
     </g>
-    <path d="M190,128 H240" class="E dw" style="--L:50"/>
+    <path d="M200,138 H250" class="E dw" style="--L:50"/>
     <g class="hit" data-t="t2">
-      <rect x="240" y="76" width="190" height="104" rx="4" class="B fz"/>
-      <text x="335" y="120" class="T" text-anchor="middle">the same editor</text>
-      <text x="335" y="150" class="L" text-anchor="middle">RECONSTRUCTION PROMPT</text>
+      <rect x="250" y="82" width="230" height="112" rx="4" class="B fz"/>
+      <text x="365" y="118" class="T" text-anchor="middle">Qwen-Image-Edit</text>
+      <text x="365" y="144" class="N" text-anchor="middle">distilled, four steps</text>
+      <text x="365" y="172" class="L" text-anchor="middle" style="fill:var(--indigo)">RECONSTRUCTION PROMPT</text>
     </g>
-    <path d="M430,128 H480" class="E dw" style="--L:50"/>
+    <path d="M480,138 H530" class="E dw" style="--L:50"/>
     <g class="hit" data-t="t3">
-      <rect x="480" y="76" width="190" height="104" rx="4" class="B c"/>
-      <text x="575" y="120" class="T" text-anchor="middle" style="fill:var(--coral)">reconstruction</text>
-      <text x="575" y="150" class="L" text-anchor="middle" style="fill:var(--coral)">INCONSISTENT COPY</text>
+      <rect x="530" y="82" width="200" height="112" rx="4" class="B c"/>
+      <text x="630" y="126" class="T" text-anchor="middle" style="fill:var(--coral)">reconstruction</text>
+      <text x="630" y="156" class="L" text-anchor="middle" style="fill:var(--coral)">INCONSISTENT COPY</text>
     </g>
-    <path d="M670,128 H720" class="E v dw" style="--L:50"/>
+    <path d="M730,138 H780" class="E v dw" style="--L:50"/>
     <g class="hit" data-t="t4">
-      <rect x="720" y="76" width="190" height="104" rx="4" class="B v"/>
-      <text x="815" y="120" class="T" text-anchor="middle" style="fill:var(--indigo)">the fixer learns</text>
-      <text x="815" y="150" class="L" text-anchor="middle" style="fill:var(--indigo)">FEW STEPS, ANCHORED</text>
+      <rect x="780" y="82" width="210" height="112" rx="4" class="B v"/>
+      <text x="885" y="118" class="T" text-anchor="middle" style="fill:var(--indigo)">the video fixer</text>
+      <text x="885" y="144" class="N" text-anchor="middle" style="fill:var(--indigo)">Wan2.1 causal, 1.3B</text>
+      <text x="885" y="172" class="L" text-anchor="middle" style="fill:var(--indigo)">FEW STEPS, ANCHORED</text>
     </g>
-    <path d="M910,128 H960" class="E dw" style="--L:50"/>
+    <path d="M990,138 H1040" class="E dw" style="--L:50"/>
     <g class="hit" data-t="t5">
-      <rect x="960" y="76" width="160" height="104" rx="4" class="B a"/>
-      <text x="1040" y="120" class="T" text-anchor="middle">acceptance</text>
-      <text x="1040" y="150" class="L" text-anchor="middle">TEST</text>
+      <rect x="1040" y="82" width="140" height="112" rx="4" class="B a"/>
+      <text x="1110" y="126" class="T" text-anchor="middle">acceptance</text>
+      <text x="1110" y="156" class="L" text-anchor="middle">TEST</text>
     </g>
-    <path d="M95,180 V222 H815 V184" class="E d dw" style="--L:1480"/>
-    <text x="440" y="246" class="N" text-anchor="middle">the clean video returns as the answer the fixer is trained to reproduce</text>
+    <path d="M100,194 V240 H885 V198" class="E d dw" style="--L:1620"/>
+    <text x="470" y="264" class="N" text-anchor="middle">the clean video returns as the answer the fixer is trained to reproduce</text>
 
-    <path d="M860,364 V190" class="E v d dw" style="--L:174"/>
-    <text x="1010" y="290" class="N" text-anchor="middle" style="fill:var(--indigo)">one set of weights</text>
+    <path d="M930,388 V204" class="E v d dw" style="--L:184"/>
+    <text x="1090" y="300" class="N" text-anchor="middle" style="fill:var(--indigo)">one set of weights</text>
 
-    <rect x="-14" y="312" width="1148" height="248" rx="8" class="zone"/>
-    <text x="0" y="302" class="L">INFERENCE, ON THE INCOMING STREAM</text>
+    <rect x="-16" y="330" width="1212" height="252" rx="8" class="zone"/>
+    <text x="0" y="318" class="L">INFERENCE, ON THE INCOMING STREAM</text>
 
     <g class="hit" data-t="i1">
-      <rect x="0" y="364" width="190" height="104" rx="4" class="B"/>
-      <text x="95" y="408" class="T" text-anchor="middle">video in</text>
-      <text x="95" y="438" class="L" text-anchor="middle">PLUS ONE PROMPT</text>
+      <rect x="0" y="388" width="200" height="112" rx="4" class="B"/>
+      <text x="100" y="432" class="T" text-anchor="middle">video in</text>
+      <text x="100" y="462" class="L" text-anchor="middle">PLUS ONE PROMPT</text>
     </g>
-    <path d="M190,416 H240" class="E dw" style="--L:50"/>
+    <path d="M200,444 H250" class="E dw" style="--L:50"/>
     <g class="hit" data-t="i2">
-      <rect x="240" y="364" width="190" height="104" rx="4" class="B fz"/>
-      <text x="335" y="408" class="T" text-anchor="middle">the same editor</text>
-      <text x="335" y="438" class="L" text-anchor="middle">EDIT PROMPT</text>
+      <rect x="250" y="388" width="230" height="112" rx="4" class="B fz"/>
+      <text x="365" y="424" class="T" text-anchor="middle">Qwen-Image-Edit</text>
+      <text x="365" y="450" class="N" text-anchor="middle">the very same weights</text>
+      <text x="365" y="478" class="L" text-anchor="middle" style="fill:var(--coral)">EDIT PROMPT</text>
     </g>
-    <path d="M430,416 H480" class="E dw" style="--L:50"/>
+    <path d="M480,444 H530" class="E dw" style="--L:50"/>
     <g class="hit" data-t="i3">
-      <rect x="480" y="364" width="190" height="104" rx="4" class="B c"/>
-      <text x="575" y="408" class="T" text-anchor="middle" style="fill:var(--coral)">edited draft</text>
-      <text x="575" y="438" class="L" text-anchor="middle" style="fill:var(--coral)">INCONSISTENT</text>
+      <rect x="530" y="388" width="200" height="112" rx="4" class="B c"/>
+      <text x="630" y="432" class="T" text-anchor="middle" style="fill:var(--coral)">edited draft</text>
+      <text x="630" y="462" class="L" text-anchor="middle" style="fill:var(--coral)">INCONSISTENT</text>
     </g>
-    <path d="M670,416 H720" class="E v dw" style="--L:50"/>
+    <path d="M730,444 H780" class="E v dw" style="--L:50"/>
     <g class="hit" data-t="i4">
-      <rect x="720" y="364" width="190" height="104" rx="4" class="B v"/>
-      <text x="815" y="408" class="T" text-anchor="middle" style="fill:var(--indigo)">the video fixer</text>
-      <text x="815" y="438" class="L" text-anchor="middle" style="fill:var(--indigo)">CAUSAL, STREAMING</text>
+      <rect x="780" y="388" width="210" height="112" rx="4" class="B v"/>
+      <text x="885" y="424" class="T" text-anchor="middle" style="fill:var(--indigo)">the video fixer</text>
+      <text x="885" y="450" class="N" text-anchor="middle" style="fill:var(--indigo)">causal, streaming</text>
+      <text x="885" y="478" class="L" text-anchor="middle" style="fill:var(--indigo)">SAME WEIGHTS</text>
     </g>
-    <path d="M910,416 H960" class="E v dw" style="--L:50"/>
+    <path d="M990,444 H1040" class="E v dw" style="--L:50"/>
     <g class="hit" data-t="i5">
-      <rect x="960" y="364" width="160" height="104" rx="4" class="B t"/>
-      <text x="1040" y="408" class="T" text-anchor="middle" style="fill:var(--teal)">settled out</text>
-      <text x="1040" y="438" class="L" text-anchor="middle" style="fill:var(--teal)">CONSTANT COST</text>
+      <rect x="1040" y="388" width="140" height="112" rx="4" class="B t"/>
+      <text x="1110" y="432" class="T" text-anchor="middle" style="fill:var(--teal)">settled</text>
+      <text x="1110" y="462" class="L" text-anchor="middle" style="fill:var(--teal)">CONSTANT COST</text>
     </g>
-    <path d="M95,364 V338 H815 V360" class="E d dw" style="--L:1480"/>
-    <text x="440" y="330" class="N" text-anchor="middle">the source video travels along as the motion reference</text>
-    <path d="M815,468 V500 H1040 V472" class="E dw" style="--L:290"/>
-    <text x="928" y="522" class="N" text-anchor="middle">chunk by chunk, over a rolling window of fixed size</text>
+    <path d="M100,388 V356 H885 V384" class="E d dw" style="--L:1620"/>
+    <text x="470" y="348" class="N" text-anchor="middle">the source video travels along as the motion reference</text>
+    <path d="M885,500 V536 H1110 V504" class="E dw" style="--L:300"/>
+    <text x="1000" y="558" class="N" text-anchor="middle">chunk by chunk, over a rolling window of fixed size</text>
   </svg>
   </figure>
   <figure class="rv">
@@ -430,42 +434,44 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
 
 <!-- 10 INSIGHT ONE -->
 <section id="s10" data-sp="Insight one" data-m="draft">
-  <p class="lab rv"><i>10</i> &nbsp; insight one, two corruptions, one target</p>
-  <h2 class="rv">A per frame draft carries two different corruptions. <em>One of them is our target.</em></h2>
+  <p class="lab rv"><i>10</i> &nbsp; insight one, what the fixer is trained to remove</p>
+  <h2 class="rv">The target is structural temporal inconsistency, and the reconstruction prompt is how we produce it.</h2>
   <figure class="rv">
-  <svg viewBox="0 0 1020 320">
-    <text x="0" y="14" class="L">APPEARANCE FLICKER, THE COSMETIC ONE</text>
-    <rect x="0" y="32" width="300" height="86" rx="4" class="B"/>
-    <text x="150" y="66" class="T" text-anchor="middle">low frequency variation</text>
-    <text x="150" y="94" class="N" text-anchor="middle">brightness, colour, exposure, frame to frame</text>
-    <path d="M308,74 H356" class="E dw" style="--L:48"/>
-    <rect x="364" y="32" width="300" height="86" rx="4" class="B"/>
-    <text x="514" y="66" class="T" text-anchor="middle">the sampling seed governs it</text>
-    <text x="514" y="94" class="N" text-anchor="middle">sharing one seed suppresses it, fresh seeds enlarge it</text>
-    <path d="M672,74 H720" class="E dw" style="--L:48"/>
-    <rect x="728" y="32" width="292" height="86" rx="4" class="B"/>
-    <text x="874" y="66" class="T" text-anchor="middle">a surface effect</text>
-    <text x="874" y="94" class="N" text-anchor="middle">worth removing, and easy to remove</text>
+  <svg viewBox="0 0 1120 360">
+    <text x="0" y="18" class="L">APPEARANCE FLICKER, A SURFACE EFFECT</text>
+    <rect x="0" y="38" width="330" height="100" rx="4" class="B"/>
+    <text x="165" y="76" class="T" text-anchor="middle">low frequency variation</text>
+    <text x="165" y="106" class="N" text-anchor="middle">brightness, colour and exposure</text>
+    <path d="M330,88 H390" class="E dw" style="--L:60"/>
+    <rect x="390" y="38" width="330" height="100" rx="4" class="B"/>
+    <text x="555" y="76" class="T" text-anchor="middle">the sampling seed governs it</text>
+    <text x="555" y="106" class="N" text-anchor="middle">one shared seed suppresses it</text>
+    <path d="M720,88 H780" class="E dw" style="--L:60"/>
+    <rect x="780" y="38" width="340" height="100" rx="4" class="B"/>
+    <text x="950" y="76" class="T" text-anchor="middle">cosmetic, and easy to settle</text>
+    <text x="950" y="106" class="N" text-anchor="middle">a side effect of the protocol</text>
 
-    <text x="0" y="176" class="L" style="fill:var(--coral)">TEMPORAL INCONSISTENCY, THE ONE THAT MATTERS</text>
-    <rect x="0" y="194" width="300" height="86" rx="4" class="B c"/>
-    <text x="150" y="228" class="T" text-anchor="middle" style="fill:var(--coral)">structural, high frequency</text>
-    <text x="150" y="256" class="N" text-anchor="middle" style="fill:var(--coral)">the editor reinterprets content on every frame</text>
-    <path d="M308,236 H356" class="E c dw" style="--L:48"/>
-    <rect x="364" y="194" width="300" height="86" rx="4" class="B c"/>
-    <text x="514" y="228" class="T" text-anchor="middle" style="fill:var(--coral)">the prompt governs it</text>
-    <text x="514" y="256" class="N" text-anchor="middle" style="fill:var(--coral)">a loose reconstruction prompt lets content move</text>
-    <path d="M672,236 H720" class="E v dw" style="--L:48"/>
-    <rect x="728" y="194" width="292" height="86" rx="4" class="B v"/>
-    <text x="874" y="228" class="T" text-anchor="middle" style="fill:var(--indigo)">exactly what a real edit produces</text>
-    <text x="874" y="256" class="N" text-anchor="middle" style="fill:var(--indigo)">and exactly what the fixer is trained to remove</text>
-    <text x="0" y="310" class="N">edges and textures shift, objects are redrawn slightly differently, and the geometry of the scene wavers</text>
+    <text x="0" y="200" class="L" style="fill:var(--coral)">STRUCTURAL TEMPORAL INCONSISTENCY, OUR TARGET</text>
+    <rect x="0" y="220" width="330" height="110" rx="4" class="B c"/>
+    <text x="165" y="258" class="T" text-anchor="middle" style="fill:var(--coral)">high frequency variation</text>
+    <text x="165" y="288" class="N" text-anchor="middle" style="fill:var(--coral)">edges, textures and object shape</text>
+    <text x="165" y="314" class="N" text-anchor="middle" style="fill:var(--coral)">redrawn on every frame</text>
+    <path d="M330,275 H390" class="E c dw" style="--L:60"/>
+    <rect x="390" y="220" width="330" height="110" rx="4" class="B c"/>
+    <text x="555" y="258" class="T" text-anchor="middle" style="fill:var(--coral)">the prompt governs it</text>
+    <text x="555" y="288" class="N" text-anchor="middle" style="fill:var(--coral)">a loose reconstruction prompt lets</text>
+    <text x="555" y="314" class="N" text-anchor="middle" style="fill:var(--coral)">the editor reinterpret the scene</text>
+    <path d="M720,275 H780" class="E v dw" style="--L:60"/>
+    <rect x="780" y="220" width="340" height="110" rx="4" class="B v"/>
+    <text x="950" y="258" class="T" text-anchor="middle" style="fill:var(--indigo)">a real edit produces this</text>
+    <text x="950" y="288" class="N" text-anchor="middle" style="fill:var(--indigo)">so the fixer learns to remove it</text>
+    <text x="950" y="314" class="N" text-anchor="middle" style="fill:var(--indigo)">while the appearance survives</text>
   </svg>
-  <figcaption>The distinction sets the lever. To make the training corruption resemble a real edit, we loosen the reconstruction prompt: a spare instruction such as reconstruct the same image lets the editor reinterpret structure, exactly as a style instruction does, while a heavily constrained instruction leaves only mild cosmetic variation. The seed adjusts the cosmetic layer, and the prompt reaches the layer we care about.</figcaption>
+  <figcaption>A style instruction makes the image editor reinterpret structure on every frame, and that is the corruption the fixer has to undo. We reproduce it on clean video by loosening the reconstruction prompt: a spare instruction such as reconstruct the same image leaves the editor free to redraw detail, while a heavily constrained instruction yields only mild cosmetic variation. The seed adjusts the surface, and the prompt reaches the layer that matters.</figcaption>
   </figure>
   <div class="g g2 rv">
-    <div class="card v"><span class="tag v">The lever we use</span><h3 style="margin-top:10px">The reconstruction prompt</h3><p>Its vagueness decides how far the editor is free to reinterpret the scene, and therefore how closely the training corruption resembles the corruption a real edit leaves behind.</p></div>
-    <div class="card a"><span class="tag a">Being measured now</span><h3 style="margin-top:10px">A signature comparison</h3><p>Frame differences are split into an appearance component and a structural component, across reconstruction prompts of varying looseness and a real edit. The training regime is chosen to match the structural signature of the edit.</p></div>
+    <div class="card v"><span class="tag v">The lever</span><h3 style="margin-top:10px">The looseness of the reconstruction prompt</h3><p>It sets how far the editor may reinterpret a clean video, and therefore how closely the training corruption resembles what a real edit leaves behind.</p></div>
+    <div class="card a"><span class="tag a">Being measured now</span><h3 style="margin-top:10px">A signature comparison</h3><p>Frame differences are separated into an appearance component and a structural component, across reconstruction prompts of varying looseness and a real edit, and the training regime is chosen to match the structural signature of the edit.</p></div>
   </div>
 </section>
 
@@ -547,8 +553,44 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
 <!-- 13 PLAN -->
 <section id="s13" data-sp="The plan" data-m="stream">
   <p class="lab rv"><i>13</i> &nbsp; the plan</p>
-  <h2 class="rv">Five milestones, each branching into the outcomes it can produce.</h2>
-  <p class="rv">Open a milestone to read the work and the acceptance test it must clear. Open an outcome to read the response we have prepared for it.</p>
+  <h2 class="rv">Five stages, and the paths that open out of each one.</h2>
+  <figure class="rv">
+  <svg viewBox="0 0 1120 250">
+    <rect x="0" y="20" width="196" height="66" rx="4" class="B t"/>
+    <text x="98" y="48" class="T" text-anchor="middle" style="fill:var(--teal)">stage 1</text>
+    <text x="98" y="72" class="N" text-anchor="middle" style="fill:var(--teal)">editor calibrated</text>
+    <path d="M196,53 H228" class="E"/>
+    <rect x="228" y="20" width="196" height="66" rx="4" class="B t"/>
+    <text x="326" y="48" class="T" text-anchor="middle" style="fill:var(--teal)">stage 2</text>
+    <text x="326" y="72" class="N" text-anchor="middle" style="fill:var(--teal)">corruption matched</text>
+    <path d="M424,53 H456" class="E"/>
+    <rect x="456" y="20" width="208" height="66" rx="4" class="B v"/>
+    <text x="560" y="48" class="T" text-anchor="middle" style="fill:var(--indigo)">stage 3</text>
+    <text x="560" y="72" class="N" text-anchor="middle" style="fill:var(--indigo)">fixer trained on ground truth</text>
+    <path d="M664,53 H696" class="E"/>
+    <rect x="696" y="20" width="196" height="66" rx="4" class="B a"/>
+    <text x="794" y="48" class="T" text-anchor="middle">stage 4</text>
+    <text x="794" y="72" class="N" text-anchor="middle">long horizon and real time</text>
+    <path d="M892,53 H924" class="E"/>
+    <rect x="924" y="20" width="196" height="66" rx="4" class="B a"/>
+    <text x="1022" y="48" class="T" text-anchor="middle">stage 5</text>
+    <text x="1022" y="72" class="N" text-anchor="middle">head to head</text>
+
+    <path d="M560,86 V116 H300 V150" class="E v d dw" style="--L:330"/>
+    <path d="M560,86 V150" class="E v d dw" style="--L:64"/>
+    <path d="M560,86 V116 H860 V150" class="E v d dw" style="--L:330"/>
+    <rect x="160" y="150" width="280" height="70" rx="4" class="B t"/>
+    <text x="300" y="180" class="T" text-anchor="middle" style="fill:var(--teal)">it clears both tests</text>
+    <text x="300" y="204" class="N" text-anchor="middle" style="fill:var(--teal)">freeze the recipe and scale it</text>
+    <rect x="450" y="150" width="220" height="70" rx="4" class="B a"/>
+    <text x="560" y="180" class="T" text-anchor="middle">it clears one</text>
+    <text x="560" y="204" class="N" text-anchor="middle">retune the anchor</text>
+    <rect x="720" y="150" width="280" height="70" rx="4" class="B c"/>
+    <text x="860" y="180" class="T" text-anchor="middle" style="fill:var(--coral)">the edit is undone</text>
+    <text x="860" y="204" class="N" text-anchor="middle" style="fill:var(--coral)">move to a styled target</text>
+  </svg>
+  <figcaption>Each stage carries an acceptance test, and each test has a prepared response for every way it can turn out. The tree below opens the full detail.</figcaption>
+  </figure>
   <div class="tree rv" id="tree"></div>
 </section>
 
@@ -580,7 +622,7 @@ const ARCH={
  t1:{t:'Clean video, the training answer',k:'t',
   b:'Training begins and ends with ordinary clean video. No edited video is collected, synthesised or filtered anywhere in the recipe, which is what frees us from the data wall that a distilled video editor stands on.',
   d:['Corpus: OpenVid and Ditto clips, with driving footage added for the target domain','The cost of one training pair: a single pass of the frozen editor','Any front editor generates its own training data, so the recipe is editor agnostic']},
- t2:{t:'The same editor, driven by a reconstruction prompt',k:'k',
+ t2:{t:'Qwen-Image-Edit, four step distilled, under a reconstruction prompt',k:'k',
   b:'The frozen editor runs frame by frame over the clean video under an appearance preserving instruction, for example: keep the image exactly as it is, preserve all content, colour and structure. It reproduces the picture, and because each frame is drawn independently, it reproduces the temporal inconsistency as well.',
   d:['Prompt family: reconstruction prompts, from strict identity to a very slight enhancement','The same step count and the same seed policy as deployment','With an empty instruction the appearance survives, so the clean video remains a valid target']},
  t3:{t:'The reconstruction, our training input',k:'c',
@@ -595,7 +637,7 @@ const ARCH={
  i1:{t:'Video in, plus one instruction',k:'k',
   b:'A live stream and a text prompt. Chunks arrive, and the same chunks leave restyled. The prompt is read once and stays fixed for the whole stream.',
   d:['Benchmarks: OpenVE and FiVE, with driving footage as the target domain','Chunk size: twelve frames','Latency and memory stay constant however long the stream runs']},
- i2:{t:'The same editor, now driven by the edit prompt',k:'k',
+ i2:{t:'Qwen-Image-Edit, the identical weights, now under the edit prompt',k:'k',
   b:'Exactly the model that produced the training data, now carrying the real instruction. It follows the prompt at full strength on every frame and holds each object in place, and being stateless it has nothing to drift with.',
   d:['Model: Qwen Image Edit 2509, four step distillation, about two seconds per frame','One seed shared across the clip, selected per clip from a few candidates','Frames are independent, so the editor batches across frames and distils freely']},
  i3:{t:'The edited draft',k:'c',
@@ -623,21 +665,21 @@ arch.querySelectorAll('.hit').forEach(h=>h.onclick=()=>{
 renderArch('t1');
 
 const PLAN=[
- {id:'m0',k:'t',title:'Milestone 0, calibrate the frozen editor',status:'DONE',
+ {id:'m0',k:'t',title:'Stage 1, calibrate the frozen editor',status:'DONE',
   work:'Run the editor under a reconstruction prompt. Sweep the seed policy, the step count and the guidance. Record how much temporal inconsistency it produces and what kind, and confirm on video that structure holds.',
   gate:'Draft inconsistency at or below 10. Reached 9.4, down from 48.4, with every object in place and about two seconds per frame.',
   branches:[
    ['A shared seed settles the editor','t','Reached. The editor becomes a stable, structure exact front end, and every stage downstream inherits that stability for free.'],
    ['Fast motion fights the shared seed','a','A single frozen seed can lag the content when the camera moves quickly. Response: couple the sampling noise to the optical flow so it travels with the pixels.'],
    ['Structure slips on some scenes','c','Then the front end is the wrong instrument. Response: raise the editor resolution and step count, or swap in a stronger distilled editor. The pipeline accepts any editor, so this stays a drop in change.']]},
- {id:'m1',k:'t',title:'Milestone 1, measure the training and test gap',status:'DONE',
+ {id:'m1',k:'t',title:'Stage 2, match the corruption we train on to the corruption a real edit leaves',status:'DONE',
   work:'Produce reconstruction drafts, mild edit drafts and drastic edit drafts on the same clips. Compare their temporal signatures as well as their magnitude, and decide what the fixer should be trained on.',
   gate:'The same kind of inconsistency, confirmed by spectrum, at about a third of the magnitude: reconstruction 2.1 against a real edit 7.4.',
   branches:[
    ['Same kind, smaller magnitude','t','Reached. Response: raise the magnitude with jitter that leaves appearance intact, so the clean video stays a valid training answer.'],
    ['The two kinds diverge','a','Then matching magnitude alone would teach the wrong corruption. Response: blend real mild edit drafts into training and supervise them with their own temporal consensus.'],
    ['The gap widens with edit strength','c','Then the fixer would meet unfamiliar corruption at test time. Response: sample a spread of magnitudes during training, so the operation is learned across the whole range.']]},
- {id:'m2',k:'v',title:'Milestone 2, train the fixer with the source withheld',status:'RUNNING NOW',
+ {id:'m2',k:'v',title:'Stage 3, train the fixer on ground truth, with the source withheld',status:'RUNNING NOW',
   work:'Three arms on real reconstruction pairs, each trained with the clean source withheld from the input: a balanced anchor, a stronger appearance anchor, and a variant that regenerates less. Checkpoints every five hundred steps.',
   gate:'Both conditions together: temporal inconsistency falls by a third or more on real edit drafts, and edit preservation stays at or above 0.93, judged on watched video.',
   branches:[
@@ -645,14 +687,14 @@ const PLAN=[
    ['Consistency improves, and the edit fades','a','The anchor is too weak. Response: raise the residual anchor and lower the starting noise, so the model stays closer to the draft appearance while it continues to correct time.'],
    ['The edit survives, and inconsistency remains','a','The anchor is too strong, or a single step is too few. Response: lower the anchor, lengthen the training window, and open the step count to a small number of steps.'],
    ['All three arms revert the edit','c','Then reconstruction alone falls short of teaching appearance preserving denoising. Response: move the target from the clean video to a styled clip, so keeping the edit becomes the only way to satisfy the loss. Should that also fail, we report the negative result together with its mechanism.']]},
- {id:'m3',k:'a',title:'Milestone 3, the long horizon and real time',status:'NEXT',
+ {id:'m3',k:'a',title:'Stage 4, the long horizon and real time',status:'NEXT',
   work:'Rebuild the reconstruction corpus on driving footage and retrain the winning arm. Attach the rolling window with re indexed positions, trace the drift curve across minute long streams, and log the latency of every chunk for both halves of the system.',
   gate:'Metrics hold on driving clips, drift stays well below an end to end editor across the same horizon, and latency stays flat as the stream grows.',
   branches:[
    ['The domain and the horizon both hold','t','Response: proceed to the head to head, and report the latency budget of each half separately.'],
    ['Long streams still wander','a','Response: pin a small set of early frames inside the window and re index the rest, so attention keeps an anchor. The editor carries no memory, so any residual drift belongs to the base rollout and is addressable there.'],
    ['Latency climbs with stream length','c','Response: shrink the window and raise the chunk size, then re time. Because the two halves are independent, the editor can be distilled further while the fixer stays untouched.']]},
- {id:'m4',k:'a',title:'Milestone 4, the head to head',status:'THEN',
+ {id:'m4',k:'a',title:'Stage 5, the head to head',status:'THEN',
   work:'Two editing benchmarks and driving footage. The competing checkpoint runs inside our own harness on our own videos. Smoothness is always reported with motion beside it, and every run reports edit preservation.',
   gate:'Temporal metrics beside a dedicated edit supervised editor, while we keep more motion and more editing strength, at zero paired data and very few steps.',
   branches:[
