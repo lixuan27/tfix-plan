@@ -10,8 +10,7 @@
 <style>
 :root{
   --paper:#F4F1EB; --card:#FFFDF9; --panel:#EDE9E1;
-  --ink:#141618;            /* everything is this black */
-  --line:#CFC8BA; --line2:#B4AB99;
+  --ink:#141618;
   --coral:#EF4A28;   /* drift, flicker, failure */
   --teal:#0E9E86;    /* consistent, passed */
   --indigo:#4B45CF;  /* the learned model */
@@ -24,13 +23,13 @@ body{background:var(--paper);color:var(--ink);font-family:var(--f);font-weight:5
 
 #bar{position:fixed;top:0;left:0;height:4px;background:var(--coral);z-index:60;width:0;transition:width .12s linear}
 
-#spine{position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:50;width:172px}
+#spine{position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:50;width:176px}
 #spine a{display:flex;align-items:center;gap:10px;padding:7px 0;text-decoration:none;opacity:.45;transition:.35s}
 #spine a.on{opacity:1}
-#spine i{width:9px;height:9px;border-radius:50%;background:var(--line2);flex:none;transition:.35s}
+#spine i{width:9px;height:9px;border-radius:50%;background:#B4AB99;flex:none;transition:.35s}
 #spine a.on i{background:var(--ink);transform:scale(1.5)}
 #spine a.on.c i{background:var(--coral)} #spine a.on.t i{background:var(--teal)} #spine a.on.v i{background:var(--indigo)}
-#spine b{font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--ink)}
+#spine b{font-size:15px;font-weight:700;color:var(--ink)}
 @media(max-width:1300px){#spine{display:none}}
 
 #flow{position:sticky;top:0;z-index:40;background:rgba(244,241,235,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink);
@@ -46,19 +45,17 @@ body{background:var(--paper);color:var(--ink);font-family:var(--f);font-weight:5
 @media(max-width:860px){#flow{display:none}}
 
 section{max-width:1080px;margin:0 auto;padding:96px 28px}
-.lab{font-size:18px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-bottom:16px}
+.lab{font-size:18px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
 .lab i{font-style:normal;color:var(--coral)}
 h1{font-weight:600;font-size:78px;line-height:1.06;letter-spacing:-.02em}
 h1 em{font-style:italic;color:var(--coral)}
 h2{font-weight:600;font-size:46px;line-height:1.15;letter-spacing:-.012em;max-width:22ch}
 h2 em{font-style:italic;color:var(--coral)}
 h3{font-weight:700;font-size:26px;line-height:1.3}
-p{font-size:22px;font-weight:500;color:var(--ink);max-width:56ch;margin-top:16px}
-p.big{font-size:28px;font-weight:600;max-width:50ch}
+p{font-size:22px;font-weight:500;max-width:56ch;margin-top:16px}
 b{font-weight:700}
-em{font-style:italic}
 figure{margin:40px 0 0}
-figcaption{font-size:19px;font-weight:600;color:var(--ink);margin-top:14px;line-height:1.45}
+figcaption{font-size:19px;font-weight:600;margin-top:14px;line-height:1.45}
 video,img.shot{width:100%;display:block;border:2px solid var(--ink);border-radius:3px;background:#111}
 img.shot{background:#fff}
 svg{width:100%;height:auto;overflow:visible;display:block}
@@ -74,13 +71,7 @@ svg{width:100%;height:auto;overflow:visible;display:block}
 .card p{font-size:19px;margin-top:8px}
 .tag{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px;color:#fff}
 .tag.c{background:var(--coral)} .tag.t{background:var(--teal)} .tag.v{background:var(--indigo)} .tag.a{background:var(--amber);color:var(--ink)} .tag.k{background:var(--ink)}
-.pick{cursor:pointer;text-align:left;font:inherit;color:inherit;transition:.2s;background:var(--card)}
-.pick:hover{transform:translateY(-3px)}
-.pick.on{background:var(--ink);color:var(--card)}
-.pick.on h3,.pick.on p{color:var(--card)}
 .out{margin-top:20px;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:24px 28px;min-height:150px}
-.num{font-size:56px;font-weight:700;line-height:1}
-.num.c{color:var(--coral)} .num.t{color:var(--teal)}
 
 #s0{min-height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:1180px}
 .cue{margin-top:46px;font-size:17px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
@@ -121,14 +112,7 @@ g.hit{cursor:pointer}
 g.hit:hover .B{fill:var(--panel)}
 g.hit.on .B{fill:var(--ink);stroke:var(--ink)}
 g.hit.on text{fill:var(--card)}
-
-.meter{position:relative;height:120px;margin-top:40px}
-.meter .tk{position:absolute;left:0;right:0;top:60px;height:3px;background:var(--ink)}
-.mk{position:absolute;transform:translateX(-50%);text-align:center}
-.mk .lb{font-size:16px;font-weight:700;white-space:nowrap}
-.mk .pp{width:14px;height:14px;border-radius:50%;background:var(--ink);margin:8px auto 0}
-.mk.t .pp{background:var(--teal)} .mk.t .lb{color:var(--teal)}
-.mk.c .pp{background:var(--coral)} .mk.c .lb{color:var(--coral)}
+.zone{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:3 5;opacity:.5}
 
 footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink);margin-top:80px}
 </style>
@@ -153,12 +137,12 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
 
 <!-- 0 THE PROBLEM -->
 <section id="s0" data-sp="The problem" data-m="">
-  <p class="lab rv">Streaming video editing, pass through augmented reality in vehicles</p>
+  <p class="lab rv">Streaming video editing</p>
   <h1 class="rv">How do we edit a live video stream <em>without drift</em>, from a temporal denoising point of view?</h1>
   <div class="g g3 rv" style="margin-top:44px">
-    <div class="card"><span class="tag k">What</span><p>Restyle a camera stream in real time, chunk by chunk, for minutes at a time.</p></div>
+    <div class="card"><span class="tag k">What</span><p>Restyle a video as it arrives, chunk by chunk, for minutes at a time.</p></div>
     <div class="card c"><span class="tag c">Why it is hard</span><p>Editing inside an autoregressive video model accumulates error, so the picture drifts away from the scene.</p></div>
-    <div class="card t"><span class="tag t">Our angle</span><p>Recast the task as flicker denoising plus temporal reconstruction, and let pretrained models carry the rest.</p></div>
+    <div class="card t"><span class="tag t">Our angle</span><p>Recast the task as flicker denoising and temporal reconstruction, and let pretrained models carry the rest.</p></div>
   </div>
   <div class="cue rv"><i></i> scroll</div>
 </section>
@@ -166,24 +150,25 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
 <!-- 1 WHY IT MATTERS -->
 <section id="s1" data-sp="Why it matters" data-m="">
   <p class="lab rv"><i>01</i> &nbsp; why this problem is worth solving</p>
-  <h2 class="rv">A car windscreen is the hardest video editor anyone has to build.</h2>
+  <h2 class="rv">Every live pixel pipeline asks for the same three things at once.</h2>
   <figure class="rv">
-  <svg viewBox="0 0 1020 210">
-    <rect x="0" y="30" width="300" height="86" rx="4" class="B"/>
-    <text x="150" y="66" class="T" text-anchor="middle">the stream arrives forever</text>
-    <text x="150" y="94" class="N" text-anchor="middle">minutes, and the model saw 5 seconds</text>
-    <rect x="360" y="30" width="300" height="86" rx="4" class="B"/>
+  <svg viewBox="0 0 1020 230">
+    <rect x="0" y="30" width="300" height="90" rx="4" class="B"/>
+    <text x="150" y="66" class="T" text-anchor="middle">the stream runs long</text>
+    <text x="150" y="96" class="N" text-anchor="middle">minutes, while models train on seconds</text>
+    <rect x="360" y="30" width="300" height="90" rx="4" class="B"/>
     <text x="510" y="66" class="T" text-anchor="middle">the budget is one chunk</text>
-    <text x="510" y="94" class="N" text-anchor="middle">constant latency, constant memory</text>
-    <rect x="720" y="30" width="300" height="86" rx="4" class="B"/>
-    <text x="870" y="66" class="T" text-anchor="middle">the scene is real</text>
-    <text x="870" y="94" class="N" text-anchor="middle">every car and sign stays where it is</text>
-    <path d="M150,116 V150 H510 V166" class="E dw" style="--L:420"/>
-    <path d="M510,116 V150" class="E dw" style="--L:34"/>
-    <path d="M870,116 V150 H510" class="E dw" style="--L:400"/>
-    <rect x="300" y="166" width="420" height="44" rx="22" class="B c"/>
-    <text x="510" y="195" class="T" text-anchor="middle" style="fill:var(--coral)">any error survives, compounds, and becomes drift</text>
+    <text x="510" y="96" class="N" text-anchor="middle">constant latency, constant memory</text>
+    <rect x="720" y="30" width="300" height="90" rx="4" class="B"/>
+    <text x="870" y="66" class="T" text-anchor="middle">the scene stays real</text>
+    <text x="870" y="96" class="N" text-anchor="middle">objects hold their shape and place</text>
+    <path d="M150,120 V158 H510 V174" class="E dw" style="--L:430"/>
+    <path d="M510,120 V158" class="E dw" style="--L:38"/>
+    <path d="M870,120 V158 H510" class="E dw" style="--L:410"/>
+    <rect x="290" y="174" width="440" height="48" rx="24" class="B c"/>
+    <text x="510" y="205" class="T" text-anchor="middle" style="fill:var(--coral)">any error survives, compounds, and becomes drift</text>
   </svg>
+  <figcaption>Live restyling, augmented reality, film previsualisation, simulation for robots and driving: the deployments differ, and the demand is identical.</figcaption>
   </figure>
 </section>
 
@@ -193,43 +178,42 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
   <h2 class="rv">Distil a video editor into a four step causal student.</h2>
   <figure class="rv">
     <img class="shot" src="media/liveedit_fig4.jpg" alt="LiveEdit framework, three stage distillation">
-    <figcaption>LiveEdit, Figure 4 (arXiv 2606.26740). Stage 1 tunes a bidirectional editor. Stage 2 uses teacher forcing to make it chunk wise causal. Stage 3 distils it to four steps with distribution matching, plus a mask cache for speed.</figcaption>
+    <figcaption>LiveEdit, Figure 4 (arXiv 2606.26740). Stage 1 tunes a bidirectional editor. Stage 2 applies teacher forcing to make it chunk wise causal. Stage 3 distils it to four steps with distribution matching, and a mask cache carries the speed.</figcaption>
   </figure>
   <div class="g g3 rv">
-    <div class="card"><span class="tag k">It buys</span><p>Real time speed and a genuinely causal editor.</p></div>
+    <div class="card"><span class="tag k">It buys</span><p>Real time speed, and a genuinely causal editor.</p></div>
     <div class="card c"><span class="tag c">It costs</span><p>Edited video pairs, synthesised by a larger model and filtered before use.</p></div>
     <div class="card c"><span class="tag c">It keeps</span><p>The edit inside the recurrent state, which is exactly where drift is born.</p></div>
   </div>
 </section>
 
-<!-- 3 FAILURES -->
+<!-- 3 DRIFT -->
 <section id="s3" data-sp="Where it breaks" data-m="">
-  <p class="lab rv"><i>03</i> &nbsp; what those pipelines actually produce</p>
+  <p class="lab rv"><i>03</i> &nbsp; what those pipelines produce</p>
   <h2 class="rv">Watch the drift.</h2>
   <figure class="rv">
     <video src="media/baseline_drift_grid.mp4" muted loop playsinline autoplay preload="auto"></video>
-    <figcaption>Video to video baselines on driving footage. Left column is the source. The rest repaint the street, saturate it, and slide away from the geometry as the clip runs.</figcaption>
+    <figcaption>Video to video baselines. The left column is the source. The rest repaint the street, saturate it, and slide away from the geometry as the clip runs.</figcaption>
   </figure>
-  <div class="g g2 rv">
-    <div class="card c"><span class="tag c">Failure one</span><h3 style="margin-top:10px">The scene drifts</h3><p>Colour and geometry keep moving, because the edit lives inside the rollout.</p></div>
-    <div class="card c"><span class="tag c">Failure two</span><h3 style="margin-top:10px">Motion is traded for smoothness</h3><p>The strongest streaming editor reaches smoothness 0.993 while its dynamic degree falls to 0.25. It is smooth because it is nearly still.</p></div>
-  </div>
 </section>
 
-<!-- 4 SOTA FAILURE VIDEO -->
-<section id="s4" data-sp="Same videos" data-m="">
-  <p class="lab rv"><i>04</i> &nbsp; the strongest streaming editor, on our videos</p>
-  <h2 class="rv">Structure survives. The instruction fades.</h2>
+<!-- 4 LIVEEDIT FAILURES -->
+<section id="s4" data-sp="The trade" data-m="">
+  <p class="lab rv"><i>04</i> &nbsp; the strongest streaming editor, at its weakest</p>
+  <h2 class="rv">Structure survives. <em>The instruction fades.</em></h2>
   <figure class="rv">
-    <video src="media/cmp_cartoon.mp4" muted loop playsinline autoplay preload="auto"></video>
-    <div class="panels"><span>source</span><span style="color:var(--coral)">LiveEdit</span><span>per frame editor</span><span style="color:var(--teal)">plus our fixer</span></div>
-    <figcaption>Instruction: turn it into a cartoon. LiveEdit returns the source with a light wash, while a per frame image editor delivers the cartoon on every frame.</figcaption>
+    <video src="media/le_fail_cartoon.mp4" muted loop playsinline autoplay preload="auto"></video>
+    <div class="panels"><span>source</span><span style="color:var(--coral)">LiveEdit, instruction: make it a cartoon</span></div>
   </figure>
   <figure class="rv">
-    <video src="media/cmp_rainy.mp4" muted loop playsinline preload="metadata" controls></video>
-    <div class="panels"><span>source</span><span style="color:var(--coral)">LiveEdit</span><span>per frame editor</span><span style="color:var(--teal)">plus our fixer</span></div>
-    <figcaption>Instruction: make it rainy. Same pattern. The edit strength that an image model gives for free is the strength a distilled video editor gives up.</figcaption>
+    <video src="media/le_fail_rainy.mp4" muted loop playsinline preload="metadata" controls></video>
+    <div class="panels"><span>source</span><span style="color:var(--coral)">LiveEdit, instruction: make it rainy</span></div>
+    <figcaption>The output stays close to the source and the requested style barely lands. On the metric side the same trade shows up as smoothness 0.993 with dynamic degree 0.25: it is smooth because it is nearly still.</figcaption>
   </figure>
+  <div class="g g2 rv">
+    <div class="card c"><span class="tag c">The pattern</span><h3 style="margin-top:10px">Editing strength is spent on stability</h3><p>A distilled causal editor holds the frame together by staying near the source, so the instruction arrives faint.</p></div>
+    <div class="card"><span class="tag k">The question this raises</span><h3 style="margin-top:10px">Who should carry the edit?</h3><p>Image models already follow instructions with force and precision. The recurrence is what keeps giving it back.</p></div>
+  </div>
 </section>
 
 <!-- 5 DIAGNOSIS -->
@@ -265,11 +249,11 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
     <rect x="822" y="224" width="198" height="70" rx="4" class="B t"/>
     <text x="921" y="266" class="T" text-anchor="middle" style="fill:var(--teal)">settled video</text>
   </svg>
-  <figcaption>The instruction leaves the recurrent state entirely. What stays in the loop is a low entropy job: remove flicker, rebuild time.</figcaption>
+  <figcaption>The instruction leaves the recurrent state entirely. What stays inside the loop is a low entropy job: remove the flicker, rebuild the time.</figcaption>
   </figure>
 </section>
 
-<!-- 6 THE PIVOT -->
+<!-- 6 OUR IDEA -->
 <section id="s6" data-sp="Our idea" data-m="edit">
   <p class="lab rv"><i>06</i> &nbsp; the idea</p>
   <h2 class="rv">The image model edits. The video model <em>fixes</em>.</h2>
@@ -280,64 +264,91 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
   </div>
   <figure class="rv">
     <video src="media/waymo_edit_sbs.mp4" muted loop playsinline preload="metadata" controls></video>
-    <div class="panels"><span>source</span><span>per frame edit, structure exact</span></div>
-    <figcaption>Content arrives correct on every frame. Time arrives broken. So we train a video model to denoise time, and nothing else.</figcaption>
+    <div class="panels"><span>source</span><span>per frame edit, structure exact, instruction fully landed</span></div>
+    <figcaption>Content arrives correct on every frame. Time arrives broken. So we train a video model to denoise time, and to leave everything else alone.</figcaption>
   </figure>
 </section>
 
-<!-- 7 PIPELINE -->
-<section id="s7" data-sp="Pipeline" data-m="fix">
-  <p class="lab rv"><i>07</i> &nbsp; the system</p>
-  <h2 class="rv">One frozen model, one trained model. Click a stage.</h2>
+<!-- 7 MASTER ARCHITECTURE -->
+<section id="s7" data-sp="Architecture" data-m="fix">
+  <p class="lab rv"><i>07</i> &nbsp; the whole architecture, inference and training in one picture</p>
+  <h2 class="rv">Click any box for the model, the data, and the training rule.</h2>
   <figure class="rv">
-  <svg viewBox="0 0 1020 220" id="pipe">
-    <g class="hit on" data-t="p1">
-      <rect x="0" y="60" width="182" height="90" rx="4" class="B fz"/>
-      <text x="91" y="98" class="T" text-anchor="middle">image editor</text>
-      <text x="91" y="124" class="L" text-anchor="middle">FROZEN</text>
+  <svg viewBox="0 0 1020 470" id="arch">
+    <rect x="-6" y="6" width="1032" height="196" rx="6" class="zone"/>
+    <text x="0" y="-4" class="L">INFERENCE, WHAT RUNS ON THE STREAM</text>
+
+    <g class="hit on" data-t="a1">
+      <rect x="0" y="60" width="150" height="86" rx="4" class="B"/>
+      <text x="75" y="98" class="T" text-anchor="middle">video in</text>
+      <text x="75" y="124" class="L" text-anchor="middle">PLUS A PROMPT</text>
     </g>
-    <path d="M190,105 H228" class="E"/>
-    <g class="hit" data-t="p2">
-      <rect x="236" y="60" width="170" height="90" rx="4" class="B fz"/>
-      <text x="321" y="98" class="T" text-anchor="middle">video codec</text>
-      <text x="321" y="124" class="L" text-anchor="middle">FROZEN</text>
+    <path d="M158,103 H196" class="E dw" style="--L:38"/>
+    <g class="hit" data-t="a2">
+      <rect x="204" y="60" width="196" height="86" rx="4" class="B fz"/>
+      <text x="302" y="98" class="T" text-anchor="middle">image editor</text>
+      <text x="302" y="124" class="L" text-anchor="middle">FROZEN, PER FRAME</text>
     </g>
-    <path d="M414,105 H452" class="E v"/>
-    <g class="hit" data-t="p3">
-      <rect x="460" y="52" width="200" height="106" rx="4" class="B v"/>
-      <text x="560" y="94" class="T" text-anchor="middle" style="fill:var(--indigo)">causal fixer</text>
-      <text x="560" y="120" class="L" text-anchor="middle" style="fill:var(--indigo)">LEARNED, ONE STEP</text>
+    <path d="M408,103 H446" class="E dw" style="--L:38"/>
+    <g class="hit" data-t="a3">
+      <rect x="454" y="60" width="180" height="86" rx="4" class="B c"/>
+      <text x="544" y="98" class="T" text-anchor="middle" style="fill:var(--coral)">flickering draft</text>
+      <text x="544" y="124" class="L" text-anchor="middle" style="fill:var(--coral)">EDIT LANDED, TIME BROKEN</text>
     </g>
-    <path d="M668,105 H706" class="E v"/>
-    <g class="hit" data-t="p4">
-      <rect x="714" y="60" width="176" height="90" rx="4" class="B"/>
-      <text x="802" y="98" class="T" text-anchor="middle">streaming loop</text>
-      <text x="802" y="124" class="L" text-anchor="middle">CONSTANT COST</text>
+    <path d="M642,103 H680" class="E v dw" style="--L:38"/>
+    <g class="hit" data-t="a4">
+      <rect x="688" y="52" width="196" height="102" rx="4" class="B v"/>
+      <text x="786" y="92" class="T" text-anchor="middle" style="fill:var(--indigo)">video fixer</text>
+      <text x="786" y="118" class="L" text-anchor="middle" style="fill:var(--indigo)">TRAINED, ONE STEP</text>
+      <text x="786" y="138" class="L" text-anchor="middle" style="fill:var(--indigo)">CAUSAL, STREAMING</text>
     </g>
-    <path d="M898,105 H936" class="E"/>
-    <g class="hit" data-t="p5">
-      <rect x="944" y="60" width="76" height="90" rx="4" class="B t"/>
-      <text x="982" y="98" class="T" text-anchor="middle" style="fill:var(--teal)">out</text>
-      <text x="982" y="124" class="L" text-anchor="middle" style="fill:var(--teal)">WATCHED</text>
+    <path d="M892,103 H930" class="E v dw" style="--L:38"/>
+    <g class="hit" data-t="a5">
+      <rect x="938" y="60" width="82" height="86" rx="4" class="B t"/>
+      <text x="979" y="98" class="T" text-anchor="middle" style="fill:var(--teal)">out</text>
+      <text x="979" y="124" class="L" text-anchor="middle" style="fill:var(--teal)">SETTLED</text>
     </g>
-    <path d="M91,60 V22 H560 V48" class="E d"/>
-    <text x="320" y="14" class="N" text-anchor="middle">source video, the motion reference</text>
-    <text x="91" y="182" class="N" text-anchor="middle">holds every object in place</text>
-    <text x="560" y="182" class="N" text-anchor="middle">moves time, keeps the draft appearance</text>
+    <path d="M75,60 V26 H786 V48" class="E d dw" style="--L:1420"/>
+    <text x="420" y="18" class="N" text-anchor="middle">the source rides along as the motion reference</text>
+    <path d="M786,154 V176 H860 V154" class="E v"/>
+    <text x="880" y="180" class="N">rolling window, chunk by chunk</text>
+
+    <rect x="-6" y="236" width="1032" height="228" rx="6" class="zone"/>
+    <text x="0" y="226" class="L" style="fill:var(--indigo)">TRAINING BY RECONSTRUCTION, THE SAME EDITOR, ZERO EDITED VIDEO</text>
+
+    <g class="hit" data-t="a6">
+      <rect x="0" y="290" width="150" height="86" rx="4" class="B t"/>
+      <text x="75" y="328" class="T" text-anchor="middle" style="fill:var(--teal)">clean video</text>
+      <text x="75" y="354" class="L" text-anchor="middle" style="fill:var(--teal)">THE TARGET</text>
+    </g>
+    <path d="M158,333 H196" class="E dw" style="--L:38"/>
+    <g class="hit" data-t="a7">
+      <rect x="204" y="290" width="196" height="86" rx="4" class="B fz"/>
+      <text x="302" y="322" class="T" text-anchor="middle">the same editor</text>
+      <text x="302" y="348" class="N" text-anchor="middle">asked to keep it as it is</text>
+    </g>
+    <path d="M408,333 H446" class="E dw" style="--L:38"/>
+    <g class="hit" data-t="a8">
+      <rect x="454" y="290" width="180" height="86" rx="4" class="B c"/>
+      <text x="544" y="322" class="T" text-anchor="middle" style="fill:var(--coral)">reconstruction</text>
+      <text x="544" y="348" class="N" text-anchor="middle" style="fill:var(--coral)">flickers exactly like a real edit</text>
+    </g>
+    <path d="M642,333 H680" class="E v dw" style="--L:38"/>
+    <g class="hit" data-t="a9">
+      <rect x="688" y="290" width="196" height="86" rx="4" class="B v"/>
+      <text x="786" y="322" class="T" text-anchor="middle" style="fill:var(--indigo)">the fixer learns</text>
+      <text x="786" y="348" class="L" text-anchor="middle" style="fill:var(--indigo)">ONE STEP, DRAFT ANCHORED</text>
+    </g>
+    <path d="M75,376 V420 H700" class="E d dw" style="--L:700"/>
+    <text x="330" y="412" class="N">the clean video comes back as the answer</text>
+    <path d="M884,333 H940" class="E dw" style="--L:56"/>
+    <text x="960" y="330" class="T" text-anchor="middle">gate</text>
+    <text x="960" y="352" class="N" text-anchor="middle">watched</text>
+    <path d="M786,244 V284" class="E v d"/>
+    <text x="800" y="268" class="N" style="fill:var(--indigo)">same weights</text>
   </svg>
   </figure>
-  <div class="out" id="pOut">
-    <div data-p="p1"><h3>Stage A, the editor stays frozen</h3>
-      <p>An image editor runs on every frame at four distilled steps, around two seconds per frame. It keeps each car, sign and pole in place. Since it has no memory, drift has nowhere to accumulate.</p></div>
-    <div data-p="p2" hidden><h3>A shared latent space</h3>
-      <p>A video codec and a text encoder, both frozen. We measured the codec floor first and found it clean, so the flicker inside the draft is genuinely ours to remove.</p></div>
-    <div data-p="p3" hidden><h3>Stage B, the only trained model</h3>
-      <p>A causal video transformer, started from a distilled streaming generator. Draft and source enter through fresh channels that begin at zero, so training starts exactly at the pretrained model and improves from there. One denoising step at inference.</p></div>
-    <div data-p="p4" hidden><h3>The runtime streams</h3>
-      <p>Chunk by chunk, with a rolling cache of fixed size whose positions are re indexed to stay inside the trained range. Any stream length, constant memory, constant latency.</p></div>
-    <div data-p="p5" hidden><h3>The output is watched, then measured</h3>
-      <p>Blur, frozen motion and a reverted edit all please a flicker metric. So the video decides first, and the table confirms afterwards.</p></div>
-  </div>
+  <div class="out" id="aOut"></div>
 </section>
 
 <!-- 8 SEED -->
@@ -394,69 +405,13 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
     <text x="720" y="202" class="T" text-anchor="middle" style="fill:var(--teal)">matched</text>
     <text x="720" y="226" class="N" text-anchor="middle" style="fill:var(--teal)">motion returns, quality returns with it</text>
   </svg>
-  <figcaption>The contribution is a strategy. Diagnose the frozen stage first, then calibrate the learned stage against what it really does.</figcaption>
+  <figcaption>Diagnose the frozen stage first, then calibrate the learned stage against what it really does.</figcaption>
   </figure>
 </section>
 
-<!-- 10 TRAINING -->
-<section id="s10" data-sp="Training" data-m="fix">
-  <p class="lab rv"><i>10</i> &nbsp; the training loop</p>
-  <h2 class="rv">One clean clip in. One decision out.</h2>
-  <figure class="rv">
-  <svg viewBox="0 0 1020 350">
-    <rect x="0" y="16" width="160" height="60" rx="4" class="B t"/>
-    <text x="80" y="44" class="T" text-anchor="middle" style="fill:var(--teal)">clean clip</text>
-    <text x="80" y="66" class="L" text-anchor="middle" style="fill:var(--teal)">THE ANSWER</text>
-    <path d="M168,46 H206" class="E dw" style="--L:38"/>
-    <rect x="214" y="16" width="200" height="60" rx="4" class="B fz"/>
-    <text x="314" y="44" class="T" text-anchor="middle">editor, per frame</text>
-    <text x="314" y="66" class="L" text-anchor="middle">KEEP IT AS IT IS</text>
-    <path d="M422,46 H460" class="E dw" style="--L:38"/>
-    <rect x="468" y="16" width="190" height="60" rx="4" class="B c"/>
-    <text x="563" y="44" class="T" text-anchor="middle" style="fill:var(--coral)">flickering draft</text>
-    <text x="563" y="66" class="L" text-anchor="middle" style="fill:var(--coral)">RIGHT KIND OF NOISE</text>
-    <path d="M666,46 H704" class="E dw" style="--L:38"/>
-    <rect x="712" y="16" width="190" height="60" rx="4" class="B a"/>
-    <text x="807" y="44" class="T" text-anchor="middle">calibrated jitter</text>
-    <text x="807" y="66" class="L" text-anchor="middle">RIGHT AMOUNT</text>
-
-    <path d="M807,76 V108 H570" class="E dw" style="--L:280"/>
-    <path d="M80,76 V190 H450" class="E d dw" style="--L:490"/>
-    <text x="150" y="150" class="N">the clean clip returns as the target</text>
-
-    <rect x="450" y="116" width="240" height="76" rx="4" class="B v"/>
-    <text x="570" y="150" class="T" text-anchor="middle" style="fill:var(--indigo)">the fixer takes one step</text>
-    <text x="570" y="176" class="L" text-anchor="middle" style="fill:var(--indigo)">STARTS AT THE DRAFT</text>
-    <path d="M570,192 V220" class="E v dw" style="--L:28"/>
-    <path d="M570,224 L680,272 L570,320 L460,272 Z" class="B a"/>
-    <text x="570" y="266" class="T" text-anchor="middle">edit intact</text>
-    <text x="570" y="292" class="T" text-anchor="middle">flicker down</text>
-    <path d="M680,272 H790" class="E dw" style="--L:110"/>
-    <rect x="798" y="246" width="222" height="52" rx="4" class="B t"/>
-    <text x="909" y="278" class="T" text-anchor="middle" style="fill:var(--teal)">keep the checkpoint</text>
-    <path d="M460,272 H340" class="E c dw" style="--L:120"/>
-    <rect x="80" y="246" width="252" height="52" rx="4" class="B c"/>
-    <text x="206" y="278" class="T" text-anchor="middle" style="fill:var(--coral)">retire the arm at once</text>
-    <text x="206" y="332" class="N" text-anchor="middle">blur, frozen motion and reversion end here</text>
-  </svg>
-  <figcaption>Training pairs come from clean video and the frozen editor alone. Every checkpoint faces the same gate, and the gate is watched.</figcaption>
-  </figure>
-</section>
-
-<!-- 11 DATA -->
-<section id="s11" data-sp="How much noise" data-m="draft">
-  <p class="lab rv"><i>11</i> &nbsp; how much noise to teach</p>
-  <h2 class="rv">The reconstruction gives the right kind of flicker. We supply the right amount.</h2>
-  <div class="meter rv" id="meter"></div>
-  <div class="g g2 rv">
-    <p style="margin-top:0">A reconstruction flickers the same way a real edit does, in spectrum and in colour, at roughly a third of the amount. Jitter that leaves appearance untouched covers the rest, so the clean clip stays the right answer.</p>
-    <div class="card a"><span class="tag a">The trap</span><p>A stronger prompt reaches the same amount by repainting the scene, and then the clean clip answers a different question. So we move the amount while appearance holds still.</p></div>
-  </div>
-</section>
-
-<!-- 12 RESULTS -->
-<section id="s12" data-sp="Results" data-m="out">
-  <p class="lab rv"><i>12</i> &nbsp; where it stands</p>
+<!-- 10 RESULTS -->
+<section id="s10" data-sp="Results" data-m="out">
+  <p class="lab rv"><i>10</i> &nbsp; where it stands</p>
   <h2 class="rv">The temporal gap has closed most of the way.</h2>
   <figure class="rv">
   <svg viewBox="0 0 1020 130">
@@ -479,19 +434,19 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
   </figure>
   <div class="g g3 rv">
     <div class="card t"><span class="tag t">Temporal</span><p>Smoothness 0.979 beside 0.993, subject consistency 0.918 beside 0.983, and we keep more motion: 0.375 against 0.25.</p></div>
-    <div class="card"><span class="tag k">Data</span><p>Zero edited videos, one denoising step, and a free swap of the front editor.</p></div>
+    <div class="card"><span class="tag k">Cost</span><p>Zero edited videos, one denoising step, and a free swap of the front editor.</p></div>
     <div class="card c"><span class="tag c">Their edge</span><p>Per frame sharpness, 0.565 against 0.714, carried by our editor. It is a front end lever, and we say so.</p></div>
   </div>
   <figure class="rv">
     <video src="media/waymo_gap_3panel.mp4" muted loop playsinline preload="metadata" controls></video>
-    <div class="panels"><span>source</span><span>reconstruction, what we train on</span><span>strong edit, what we meet</span></div>
+    <div class="panels"><span>source</span><span>reconstruction, what we train on</span><span>a strong edit, what we meet</span></div>
   </figure>
 </section>
 
-<!-- 13 PLAN -->
-<section id="s13" data-sp="The plan" data-m="stream">
-  <p class="lab rv"><i>13</i> &nbsp; the plan, with every branch</p>
-  <h2 class="rv">Click a milestone. Then click a branch to see the response.</h2>
+<!-- 11 PLAN -->
+<section id="s11" data-sp="The plan" data-m="stream">
+  <p class="lab rv"><i>11</i> &nbsp; the plan, with every branch</p>
+  <h2 class="rv">Click a milestone. Then click an outcome to see the response.</h2>
   <figure class="rv" style="margin-top:26px">
   <svg viewBox="0 0 1020 118" id="rail">
     <path d="M0,58 H1020" class="E d" style="marker-end:none"/>
@@ -505,20 +460,18 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
       <text x="510" y="54" class="T" text-anchor="middle" style="fill:var(--indigo)">fixer training</text>
       <text x="510" y="78" class="L" text-anchor="middle" style="fill:var(--indigo)">RUNNING NOW</text></g>
     <g class="hit" data-t="m3"><rect x="628" y="26" width="186" height="64" rx="4" class="B a"/>
-      <text x="721" y="54" class="T" text-anchor="middle">driving, streaming</text>
+      <text x="721" y="54" class="T" text-anchor="middle">long horizon</text>
       <text x="721" y="78" class="L" text-anchor="middle">NEXT</text></g>
     <g class="hit" data-t="m4"><rect x="834" y="26" width="186" height="64" rx="4" class="B a"/>
       <text x="927" y="54" class="T" text-anchor="middle">head to head</text>
       <text x="927" y="78" class="L" text-anchor="middle">THEN</text></g>
   </svg>
   </figure>
-
   <div class="out" id="mOut"></div>
 </section>
 
 <footer>
   <h2 style="max-width:none;font-size:44px;margin:0 auto">Streaming video editing becomes temporal denoising.<br><em style="color:var(--coral)">The image model edits, and the video model fixes.</em></h2>
-  <p style="max-width:none;margin:24px auto 0">Stanford and Toyota Research Institute, pass through augmented reality in vehicles</p>
 </footer>
 
 <script>
@@ -551,68 +504,103 @@ tg('pt',m=>{const s=m==='sh';ps.classList.toggle('fk',!s);
   document.getElementById('pv').textContent=s?'One seed, and the appearance settles while the scene keeps moving.'
     :'The appearance churns, while the scene itself is calm.';});
 
-function pick(p,o,cb){const P=document.getElementById(p),O=document.getElementById(o);
-  P.querySelectorAll('.hit,.pick').forEach(h=>h.onclick=()=>{
-    P.querySelectorAll('.hit,.pick').forEach(x=>x.classList.remove('on'));h.classList.add('on');
-    if(cb) cb(h.dataset.t);
-    else O.querySelectorAll('[data-p]').forEach(d=>d.hidden=d.dataset.p!==h.dataset.t);});}
-pick('pipe','pOut');
+/* ---------- master architecture details ---------- */
+const ARCH={
+ a1:{t:'Video in, plus one instruction',k:'k',
+   b:'Any video stream and a text prompt. Chunks of twelve frames arrive, and the system answers with the same chunks restyled. The prompt is read once, and it stays fixed for the whole stream.',
+   d:['Driving footage for the target domain','General video for training coverage','Benchmarks: OpenVE and FiVE, plus driving clips']},
+ a2:{t:'Image editor, frozen',k:'k',
+   b:'Qwen Image Edit at four distilled steps, around two seconds per frame, run independently on every frame. It follows the instruction with force and holds every object in place. With no memory of its own, it has nothing to drift with.',
+   d:['Model: Qwen Image Edit 2509, four step distillation','Seed policy: one seed shared across the whole clip','Guidance: idle in this setup, so the seed carries the stochasticity']},
+ a3:{t:'The flickering draft',k:'c',
+   b:'The edit has landed on every frame, and the frames disagree with one another. This is the input to the fixer, and it is also, in training, the thing we manufacture from clean video.',
+   d:['Flicker of a naive draft: 48.4','Flicker once the seed is shared: 9.4','A real video sits near 1']},
+ a4:{t:'Video fixer, the only trained model',k:'v',
+   b:'A causal video transformer initialised from a distilled streaming generator. The draft and the source enter through fresh channels that begin at zero, so training starts exactly at the pretrained model. It denoises time in a single step and changes nothing about appearance.',
+   d:['Backbone: Wan2.1 causal transformer, 1.3B, from Self Forcing','Ten times the capacity gave nothing, so capacity stays here','One step at inference, four steps give the same result']},
+ a5:{t:'The settled stream',k:'t',
+   b:'Chunks leave as they are finished, with a rolling window of fixed size whose positions are re indexed to stay inside the trained range. Any stream length, constant memory, constant latency.',
+   d:['Flicker of the finished system: 6.13, from 48.4','Smoothness 0.979, subject consistency 0.918','Motion kept: 0.375, above the streaming editor at 0.25']},
+ a6:{t:'Clean video, the training answer',k:'t',
+   b:'Training begins and ends with ordinary clean video. No edited video, no synthesised pairs, no filtering model. This is what makes the recipe editor agnostic: any front end can generate its own training data.',
+   d:['Corpus: OpenVid and Ditto clips, 41k available, 223k on hand','Driving footage joins the corpus for the target domain','Cost per pair: one pass of the frozen editor']},
+ a7:{t:'The same editor, asked to reconstruct',k:'k',
+   b:'The frozen editor runs per frame on the clean video with an appearance preserving instruction. It reproduces the picture and, because each frame is drawn on its own, it reproduces the flicker as well. The flicker we train on is therefore made by the very model we deploy.',
+   d:['Prompt family: keep the image exactly as it is','Same steps, same seed policy as deployment','Zero instruction, so the appearance stays intact']},
+ a8:{t:'Reconstruction, the training input',k:'c',
+   b:'A structure exact, genuinely flickering copy of a clean video. It has the same temporal signature as a real edit, which is what lets a fixer trained here transfer to unseen edits.',
+   d:['Signature match: high frequency share 33 against 34','Amplitude: reconstruction 2.1, a real edit 7.4','Amplitude is closed by appearance preserving jitter']},
+ a9:{t:'How the fixer learns',k:'v',
+   b:'The model starts at the draft and takes a single step towards the clean video. A residual anchor holds it at the draft appearance, so it is free to move time and it leaves the looks alone. The clean source is withheld from the input, which removes the shortcut of simply copying it.',
+   d:['Target: the clean video the reconstruction came from','Anchor: residual penalty to the draft, low starting noise','Gate: flicker down by a third, edit preservation above 0.93, watched']}
+};
+const aOut=document.getElementById('aOut');
+function renderArch(k){
+  const a=ARCH[k];
+  aOut.style.borderColor = a.k==='c'?'var(--coral)':a.k==='v'?'var(--indigo)':a.k==='t'?'var(--teal)':'var(--ink)';
+  aOut.innerHTML='<h3>'+a.t+'</h3><div class="g g2" style="margin-top:12px">'+
+    '<p style="margin-top:0">'+a.b+'</p>'+
+    '<div class="card '+(a.k==='k'?'':a.k)+'"><span class="tag '+a.k+'">choices</span>'+
+      a.d.map(x=>'<p>'+x+'</p>').join('')+'</div></div>';
+}
+function pick(p,o,cb){const P=document.getElementById(p);
+  P.querySelectorAll('.hit').forEach(h=>h.onclick=()=>{
+    P.querySelectorAll('.hit').forEach(x=>x.classList.remove('on'));h.classList.add('on');cb(h.dataset.t);});}
+pick('arch','aOut',renderArch); renderArch('a1');
 
-/* ---------- the plan: milestones, each with branches ---------- */
+/* ---------- the plan ---------- */
 const PLAN={
  m0:{title:'Milestone 0, calibrate the frozen editor',status:['DONE','t'],
    work:'Probe the editor with zero edit. Sweep the seed policy, the step count and the guidance. Measure how much it flickers and what kind of flicker it makes. Confirm by eye that structure holds.',
    gate:'Draft flicker at or below 10. Reached 9.4, down from 48.4, with every object in place and two seconds per frame.',
    branches:[
-    ['Shared seed settles it','t','Reached. The editor becomes a stable, structure exact front end, and the whole system inherits it for free.'],
-    ['Motion fights the shared seed','a','On fast driving footage a single frozen seed can lag the content. Response: couple the noise to optical flow so it travels with the pixels, which is strictly better for a moving camera.'],
+    ['A shared seed settles it','t','Reached. The editor becomes a stable, structure exact front end, and the whole system inherits that for free.'],
+    ['Motion fights the shared seed','a','On fast footage a single frozen seed can lag the content. Response: couple the noise to the optical flow so it travels with the pixels, which suits a moving camera.'],
     ['Structure still slips','c','Then the front end is the wrong tool. Response: raise editor resolution and steps, or swap in a stronger distilled editor. The pipeline accepts any editor, so this stays a drop in change.']]},
  m1:{title:'Milestone 1, measure the train and test gap',status:['DONE','t'],
-   work:'Build identity, mild and drastic drafts on the same clips. Compare their flicker spectra, not only their size. Decide what the fixer should be trained on.',
+   work:'Build reconstruction, mild edit and drastic edit drafts on the same clips. Compare their flicker spectra as well as their size. Decide what the fixer should be trained on.',
    gate:'The same kind of flicker, confirmed by spectrum, at about a third of the amount: reconstruction 2.1 against a real edit 7.4.',
    branches:[
-    ['Same kind, smaller amount','t','Reached. Response: raise the amount with appearance preserving jitter, and the clean clip stays a valid answer.'],
-    ['The kinds diverge','a','If a real edit flickers differently from a reconstruction, matching the size would teach the wrong noise. Response: blend real mild edit drafts into training and target their temporal consensus.'],
-    ['The gap grows with edit strength','c','Then the fixer would meet noise it has never seen. Response: sample a spread of amplitudes during training, so the operation is learned across the whole range rather than at one point.']]},
- m2:{title:'Milestone 2, train the fixer, source withheld',status:['RUNNING NOW','v'],
+    ['Same kind, smaller amount','t','Reached. Response: raise the amount with appearance preserving jitter, and the clean video stays a valid answer.'],
+    ['The kinds diverge','a','If a real edit flickers differently, matching the size alone would teach the wrong noise. Response: blend real mild edit drafts into training and target their temporal consensus.'],
+    ['The gap grows with edit strength','c','Then the fixer would meet unfamiliar noise at test time. Response: sample a spread of amplitudes during training, so the operation is learned across the whole range.']]},
+ m2:{title:'Milestone 2, train the fixer with the source withheld',status:['RUNNING NOW','v'],
    work:'Three arms on real reconstruction pairs, all trained with the clean source withheld from the input: a balanced anchor, a stronger appearance anchor, and a variant that regenerates less. Checkpoints every five hundred steps, saturation expected near one thousand.',
    gate:'Both together: flicker falls by a third or more on real edit drafts, and edit preservation stays at or above 0.93, judged on watched video. A night to day edit still reads as daytime.',
    branches:[
     ['One arm passes both','t','Response: freeze that recipe, publish the ablation across the three arms, and carry it into the driving domain unchanged.'],
-    ['Deflickers, but the edit fades','a','The anchor is too weak. Response: raise the residual anchor and lower the starting noise, so the model is held closer to the draft appearance while it still moves time.'],
+    ['Deflickers, and the edit fades','a','The anchor is too weak. Response: raise the residual anchor and lower the starting noise, so the model stays closer to the draft appearance while it still moves time.'],
     ['Keeps the edit, flicker stays','a','The anchor is too strong. Response: lower it, and lengthen the training window so the model sees more temporal context per step.'],
-    ['All three arms revert the edit','c','Then reconstruction alone cannot teach appearance preserving denoising. Response: move the target from the clean source to a styled clip, so preserving the edit becomes the only way to satisfy the loss. If that also fails, we report the negative result with the mechanism.']]},
- m3:{title:'Milestone 3, driving domain, then the long horizon',status:['NEXT','a'],
-   work:'Rebuild the reconstruction corpus on driving footage. Retrain the winning arm. Attach the rolling cache with re indexed positions, and trace the drift curve across minute long streams while logging latency per chunk.',
+    ['All three arms revert the edit','c','Then reconstruction alone falls short of teaching appearance preserving denoising. Response: move the target from the clean video to a styled clip, so keeping the edit becomes the only way to satisfy the loss. If that also fails, we report the negative result with the mechanism.']]},
+ m3:{title:'Milestone 3, the long horizon and the target domain',status:['NEXT','a'],
+   work:'Rebuild the reconstruction corpus on driving footage. Retrain the winning arm. Attach the rolling window with re indexed positions, and trace the drift curve across minute long streams while logging latency per chunk.',
    gate:'Metrics hold on driving clips, latency stays flat as the stream grows, and drift stays well under an end to end editor across the same horizon.',
    branches:[
-    ['Driving transfers cleanly','t','Expected, since flicker grows with organic texture and driving scenes are rigid. Response: proceed straight to the head to head.'],
-    ['Long streams still wander','a','Response: pin a small set of early frames in the cache and re index the rest, so the attention keeps an anchor. The editor carries no memory, so any remaining drift belongs to the base rollout and is addressable there.'],
-    ['Latency drifts upward','c','Response: shrink the cache and raise the chunk size, then re time. The fixer costs one step, so the budget lives in the editor, and the editor can be distilled further.']]},
+    ['The domain transfers cleanly','t','Expected, since flicker grows with organic texture and driving scenes are rigid. Response: proceed straight to the head to head.'],
+    ['Long streams still wander','a','Response: pin a small set of early frames in the window and re index the rest, so attention keeps an anchor. The editor carries no memory, so any remaining drift belongs to the base rollout and is addressable there.'],
+    ['Latency climbs with length','c','Response: shrink the window and raise the chunk size, then re time. The fixer costs one step, so the budget lives in the editor, and the editor can be distilled further.']]},
  m4:{title:'Milestone 4, the head to head',status:['THEN','a'],
    work:'Two editing benchmarks plus driving footage. The competing checkpoint runs inside our own harness on our own videos. Smoothness is always reported with motion beside it, and every run reports edit preservation.',
-   gate:'Temporal metrics beside a dedicated edit supervised editor while we keep more motion, at zero paired data, one step, and a free editor swap.',
+   gate:'Temporal metrics beside a dedicated edit supervised editor while we keep more motion and more edit strength, at zero paired data and one step.',
    branches:[
-    ['We match on time and keep motion','t','Response: the paper writes itself around editor agnostic temporal denoising, and the front end becomes the tuning knob for quality.'],
-    ['They lead on sharpness','a','Expected today, and the cause is our editor rather than the fixer. Response: raise editor resolution, or distil a sharper front end. We state the boundary plainly either way.'],
-    ['They lead on time as well','c','Then the recurrence really does buy something we lack. Response: give the fixer a longer memory through the rolling cache, and if that closes nothing, report the honest comparison.']]}
+    ['We match on time and keep the edit','t','Response: the paper writes itself around editor agnostic temporal denoising, and the front end becomes the quality knob.'],
+    ['They lead on sharpness','a','Expected today, and the cause sits in our editor rather than the fixer. Response: raise editor resolution, or distil a sharper front end. We state the boundary plainly either way.'],
+    ['They lead on time as well','c','Then the recurrence really does buy something we lack. Response: give the fixer a longer memory through the rolling window, and if that closes nothing, report the honest comparison.']]}
 };
 const mOut=document.getElementById('mOut');
 function renderPlan(k){
   const p=PLAN[k];
-  mOut.innerHTML=
-    '<h3>'+p.title+' <span class="tag '+p.status[1]+'">'+p.status[0]+'</span></h3>'+
+  mOut.innerHTML='<h3>'+p.title+' <span class="tag '+p.status[1]+'">'+p.status[0]+'</span></h3>'+
     '<div class="g g2" style="margin-top:16px">'+
       '<div><p style="margin-top:0"><b>The work.</b> '+p.work+'</p></div>'+
-      '<div class="card '+p.status[1]+'"><span class="tag k">The gate</span><p>'+p.gate+'</p></div>'+
-    '</div>'+
+      '<div class="card '+p.status[1]+'"><span class="tag k">The gate</span><p>'+p.gate+'</p></div></div>'+
     '<p style="margin-top:22px"><b>Possible outcomes.</b> Click one to see the response.</p>'+
     '<div id="brs" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"></div>'+
     '<div id="brOut" class="card" style="margin-top:14px;min-height:96px"></div>';
   const brs=document.getElementById('brs'), brOut=document.getElementById('brOut');
   p.branches.forEach((b,i)=>{
     const btn=document.createElement('button');
-    btn.className='tg';btn.style.cssText='font:inherit;font-size:19px;font-weight:700;padding:9px 16px;border:2px solid var(--ink);border-radius:3px;background:var(--card);cursor:pointer;color:var(--ink)';
+    btn.style.cssText='font:inherit;font-size:19px;font-weight:700;padding:9px 16px;border:2px solid var(--ink);border-radius:3px;background:var(--card);cursor:pointer;color:var(--ink)';
     btn.textContent=b[0];
     btn.onclick=()=>{
       [...brs.children].forEach(x=>{x.style.background='var(--card)';x.style.color='var(--ink)';});
@@ -626,22 +614,6 @@ function renderPlan(k){
   });
 }
 pick('rail','mOut',renderPlan); renderPlan('m0');
-
-const meter=document.getElementById('meter'), pos=v=>7+(Math.log(v)/Math.log(18))*86;
-meter.innerHTML='<div class="tk"></div>';
-[['real video, near 1',1.0,'',0],['reconstruction we can make, 2.1',2.1,'t',0],
- ['a real edit, the amount we need, 7.4',7.4,'',1],['a repaint, 15.6',15.6,'c',0]]
-.forEach(([l,v,c,below])=>{const m=document.createElement('div');m.className='mk '+c;m.style.left=pos(v)+'%';
-  m.style.top=below?'72px':'2px';
-  m.innerHTML=below?'<div class="pp" style="margin:0 auto 8px"></div><div class="lb">'+l+'</div>'
-                   :'<div class="lb">'+l+'</div><div class="pp"></div>';meter.append(m);});
-const sp=document.createElement('div');
-sp.style.cssText='position:absolute;top:32px;left:'+pos(2.1)+'%;width:'+(pos(7.4)-pos(2.1))+'%;height:22px;border:3px solid var(--indigo);border-bottom:0';
-const cp=document.createElement('div');
-cp.style.cssText='position:absolute;top:20px;left:'+((pos(2.1)+pos(7.4))/2)+'%;transform:translateX(-50%);font-size:16px;font-weight:700;'+
- 'color:var(--indigo);background:var(--paper);padding:0 10px;white-space:nowrap';
-cp.textContent='calibrated jitter covers this span';
-meter.append(sp,cp);
 </script>
 </body>
 </html>
