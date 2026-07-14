@@ -420,61 +420,97 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
     <text x="928" y="522" class="N" text-anchor="middle">chunk by chunk, over a rolling window of fixed size</text>
   </svg>
   </figure>
+  <figure class="rv">
+    <video src="media/waymo_gap_3panel.mp4" muted loop playsinline preload="metadata" controls></video>
+    <div class="panels"><span>source, the training answer</span><span style="color:var(--indigo)">reconstruction, the only thing we train on</span><span style="color:var(--coral)">a real edit, met at test time</span></div>
+    <figcaption>The middle panel is the entire training input: the frozen editor asked to reproduce a clean video, frame by frame, which returns a structure exact copy carrying genuine temporal inconsistency. The right panel is a real edit, which the fixer meets for the first time at test time. Training sees the middle panel and the source, and the right panel appears for the first time at test time.</figcaption>
+  </figure>
   <div class="out" id="aOut"></div>
 </section>
 
 <!-- 10 INSIGHT ONE -->
 <section id="s10" data-sp="Insight one" data-m="draft">
-  <p class="lab rv"><i>10</i> &nbsp; insight one, the origin of the inconsistency</p>
-  <h2 class="rv">Which stage produces the temporal inconsistency: the edit, or the per frame sampling protocol?</h2>
+  <p class="lab rv"><i>10</i> &nbsp; insight one, two corruptions, one target</p>
+  <h2 class="rv">A per frame draft carries two different corruptions. <em>One of them is our target.</em></h2>
   <figure class="rv">
-  <svg viewBox="0 0 1020 200">
-    <text x="0" y="16" class="L">A CONTROLLED PROBE, THE EDITOR RUNS UNDER A RECONSTRUCTION PROMPT</text>
-    <rect x="0" y="34" width="170" height="66" rx="4" class="B"/><text x="85" y="74" class="T" text-anchor="middle">clean frames</text>
-    <path d="M178,67 H216" class="E c"/>
-    <rect x="224" y="34" width="220" height="66" rx="4" class="B c"/>
-    <text x="334" y="64" class="T" text-anchor="middle" style="fill:var(--coral)">a fresh seed per frame</text>
-    <text x="334" y="90" class="T" text-anchor="middle" style="fill:var(--coral)">inconsistency 26.2</text>
-    <path d="M452,67 H490" class="E"/>
-    <rect x="498" y="34" width="220" height="66" rx="4" class="B t"/>
-    <text x="608" y="64" class="T" text-anchor="middle" style="fill:var(--teal)">one shared seed</text>
-    <text x="608" y="90" class="T" text-anchor="middle" style="fill:var(--teal)">inconsistency 6.96</text>
-    <path d="M726,67 H764" class="E"/>
-    <rect x="772" y="34" width="248" height="66" rx="4" class="B"/>
-    <text x="896" y="64" class="T" text-anchor="middle">now add a drastic style edit</text>
-    <text x="896" y="90" class="T" text-anchor="middle">inconsistency 7.11</text>
-    <rect x="0" y="134" width="1020" height="56" rx="28" class="B t"/>
-    <text x="510" y="168" class="T" text-anchor="middle" style="fill:var(--teal)">the sampling protocol produced it, and repairing the protocol alone took a real draft from 48.4 to 9.4</text>
+  <svg viewBox="0 0 1020 320">
+    <text x="0" y="14" class="L">APPEARANCE FLICKER, THE COSMETIC ONE</text>
+    <rect x="0" y="32" width="300" height="86" rx="4" class="B"/>
+    <text x="150" y="66" class="T" text-anchor="middle">low frequency variation</text>
+    <text x="150" y="94" class="N" text-anchor="middle">brightness, colour, exposure, frame to frame</text>
+    <path d="M308,74 H356" class="E dw" style="--L:48"/>
+    <rect x="364" y="32" width="300" height="86" rx="4" class="B"/>
+    <text x="514" y="66" class="T" text-anchor="middle">the sampling seed governs it</text>
+    <text x="514" y="94" class="N" text-anchor="middle">sharing one seed suppresses it, fresh seeds enlarge it</text>
+    <path d="M672,74 H720" class="E dw" style="--L:48"/>
+    <rect x="728" y="32" width="292" height="86" rx="4" class="B"/>
+    <text x="874" y="66" class="T" text-anchor="middle">a surface effect</text>
+    <text x="874" y="94" class="N" text-anchor="middle">worth removing, and easy to remove</text>
+
+    <text x="0" y="176" class="L" style="fill:var(--coral)">TEMPORAL INCONSISTENCY, THE ONE THAT MATTERS</text>
+    <rect x="0" y="194" width="300" height="86" rx="4" class="B c"/>
+    <text x="150" y="228" class="T" text-anchor="middle" style="fill:var(--coral)">structural, high frequency</text>
+    <text x="150" y="256" class="N" text-anchor="middle" style="fill:var(--coral)">the editor reinterprets content on every frame</text>
+    <path d="M308,236 H356" class="E c dw" style="--L:48"/>
+    <rect x="364" y="194" width="300" height="86" rx="4" class="B c"/>
+    <text x="514" y="228" class="T" text-anchor="middle" style="fill:var(--coral)">the prompt governs it</text>
+    <text x="514" y="256" class="N" text-anchor="middle" style="fill:var(--coral)">a loose reconstruction prompt lets content move</text>
+    <path d="M672,236 H720" class="E v dw" style="--L:48"/>
+    <rect x="728" y="194" width="292" height="86" rx="4" class="B v"/>
+    <text x="874" y="228" class="T" text-anchor="middle" style="fill:var(--indigo)">exactly what a real edit produces</text>
+    <text x="874" y="256" class="N" text-anchor="middle" style="fill:var(--indigo)">and exactly what the fixer is trained to remove</text>
+    <text x="0" y="310" class="N">edges and textures shift, objects are redrawn slightly differently, and the geometry of the scene wavers</text>
   </svg>
-  <figcaption>Temporal inconsistency is measured as a flow warped error: neighbouring frames are aligned by the motion of the source, and the residual is what remains. Real video sits near 1.</figcaption>
+  <figcaption>The distinction sets the lever. To make the training corruption resemble a real edit, we loosen the reconstruction prompt: a spare instruction such as reconstruct the same image lets the editor reinterpret structure, exactly as a style instruction does, while a heavily constrained instruction leaves only mild cosmetic variation. The seed adjusts the cosmetic layer, and the prompt reaches the layer we care about.</figcaption>
   </figure>
+  <div class="g g2 rv">
+    <div class="card v"><span class="tag v">The lever we use</span><h3 style="margin-top:10px">The reconstruction prompt</h3><p>Its vagueness decides how far the editor is free to reinterpret the scene, and therefore how closely the training corruption resembles the corruption a real edit leaves behind.</p></div>
+    <div class="card a"><span class="tag a">Being measured now</span><h3 style="margin-top:10px">A signature comparison</h3><p>Frame differences are split into an appearance component and a structural component, across reconstruction prompts of varying looseness and a real edit. The training regime is chosen to match the structural signature of the edit.</p></div>
+  </div>
 </section>
 
 <!-- 11 INSIGHT TWO -->
 <section id="s11" data-sp="Insight two" data-m="fix">
-  <p class="lab rv"><i>11</i> &nbsp; insight two</p>
-  <h2 class="rv">Both stages are tuned <em>to each other</em>.</h2>
+  <p class="lab rv"><i>11</i> &nbsp; insight two, the editing ability arrives for free</p>
+  <h2 class="rv">We train on ground truth alone. <em>Editing stays out of the training signal.</em></h2>
   <figure class="rv">
-  <svg viewBox="0 0 1020 250">
-    <rect x="20" y="26" width="290" height="100" rx="4" class="B fz"/>
-    <text x="165" y="62" class="T" text-anchor="middle">what the editor produces</text>
-    <text x="165" y="90" class="N" text-anchor="middle">measured first, then stabilised</text>
-    <rect x="710" y="26" width="290" height="100" rx="4" class="B v"/>
-    <text x="855" y="62" class="T" text-anchor="middle" style="fill:var(--indigo)">what the fixer trains on</text>
-    <text x="855" y="90" class="N" text-anchor="middle" style="fill:var(--indigo)">recalibrated to match it</text>
-    <path d="M318,56 H702" class="E v dw" style="--L:384"/>
-    <path d="M702,96 H318" class="E dw" style="--L:384"/>
-    <text x="510" y="46" class="N" text-anchor="middle">the same kind of inconsistency</text>
-    <text x="510" y="118" class="N" text-anchor="middle">at the same magnitude</text>
-    <rect x="140" y="176" width="320" height="60" rx="4" class="B c"/>
-    <text x="300" y="202" class="T" text-anchor="middle" style="fill:var(--coral)">mismatched</text>
-    <text x="300" y="226" class="N" text-anchor="middle" style="fill:var(--coral)">the fixer overcorrects, motion drains away</text>
-    <rect x="560" y="176" width="320" height="60" rx="4" class="B t"/>
-    <text x="720" y="202" class="T" text-anchor="middle" style="fill:var(--teal)">matched</text>
-    <text x="720" y="226" class="N" text-anchor="middle" style="fill:var(--teal)">motion returns, quality returns with it</text>
+  <svg viewBox="0 0 1020 330">
+    <text x="0" y="14" class="L" style="fill:var(--indigo)">TRAINING, GROUND TRUTH ONLY</text>
+    <rect x="0" y="34" width="230" height="76" rx="4" class="B t"/>
+    <text x="115" y="68" class="T" text-anchor="middle" style="fill:var(--teal)">clean video</text>
+    <text x="115" y="94" class="N" text-anchor="middle" style="fill:var(--teal)">ground truth, and the answer</text>
+    <path d="M238,72 H286" class="E dw" style="--L:48"/>
+    <rect x="294" y="34" width="270" height="76" rx="4" class="B fz"/>
+    <text x="429" y="68" class="T" text-anchor="middle">reconstruct it, frame by frame</text>
+    <text x="429" y="94" class="N" text-anchor="middle">the editor is asked to change nothing</text>
+    <path d="M572,72 H620" class="E v dw" style="--L:48"/>
+    <rect x="628" y="34" width="392" height="76" rx="4" class="B v"/>
+    <text x="824" y="68" class="T" text-anchor="middle" style="fill:var(--indigo)">the fixer learns one operation</text>
+    <text x="824" y="94" class="N" text-anchor="middle" style="fill:var(--indigo)">restore temporal consistency, preserve appearance</text>
+
+    <text x="0" y="164" class="L" style="fill:var(--coral)">TEST TIME, THE EDITING ABILITY ARRIVES FOR FREE</text>
+    <rect x="0" y="184" width="230" height="76" rx="4" class="B"/>
+    <text x="115" y="218" class="T" text-anchor="middle">any instruction</text>
+    <text x="115" y="244" class="N" text-anchor="middle">chosen by the user, at will</text>
+    <path d="M238,222 H286" class="E c dw" style="--L:48"/>
+    <rect x="294" y="184" width="270" height="76" rx="4" class="B c"/>
+    <text x="429" y="218" class="T" text-anchor="middle" style="fill:var(--coral)">the same frozen editor</text>
+    <text x="429" y="244" class="N" text-anchor="middle" style="fill:var(--coral)">now carrying the real edit</text>
+    <path d="M572,222 H620" class="E v dw" style="--L:48"/>
+    <rect x="628" y="184" width="392" height="76" rx="4" class="B t"/>
+    <text x="824" y="218" class="T" text-anchor="middle" style="fill:var(--teal)">the same fixer, unchanged</text>
+    <text x="824" y="244" class="N" text-anchor="middle" style="fill:var(--teal)">the operation it learned applies to any style</text>
+
+    <path d="M824,110 V184" class="E v d dw" style="--L:74"/>
+    <text x="470" y="304" class="T" style="fill:var(--indigo)">the appearance of the edit is carried entirely by the frozen editor,</text>
+    <text x="470" y="326" class="T" style="fill:var(--indigo)">so the trained model stays free of any edited video whatsoever</text>
   </svg>
-  <figcaption>Diagnose the frozen stage first, then calibrate the learned stage against what it actually produces.</figcaption>
+  <figcaption>Stylised outputs inform the choice of training regime, and they stay out of the training signal. Watching how a real edit behaves tells us which reconstruction prompts to write, which clips to gather and which sampling protocol to fix. The gradient that reaches the fixer comes from clean video and its own reconstruction, and from nothing else.</figcaption>
   </figure>
+  <div class="g g2 rv">
+    <div class="card v"><span class="tag v">What we calibrate</span><h3 style="margin-top:10px">The training regime</h3><p>Reconstruction prompts, the corpus, the sampling protocol and the magnitude of the corruption we present. All of it is set on clean video, and all of it stays upstream of the loss.</p></div>
+    <div class="card t"><span class="tag t">What arrives for free</span><h3 style="margin-top:10px">The editing ability</h3><p>Any instruction the frozen editor can follow becomes a video edit, with the same weights and with no further training. Editing supervision is absent from the recipe by construction.</p></div>
+  </div>
 </section>
 
 <!-- 12 RESULTS -->
@@ -506,10 +542,6 @@ footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink)
     <div class="card"><span class="tag k">Cost</span><p>Zero edited videos, very few denoising steps, and a free swap of the front editor.</p></div>
     <div class="card c"><span class="tag c">Their edge</span><p>Per frame sharpness, 0.565 against 0.714, carried by our editor. It is a front end lever, and we say so.</p></div>
   </div>
-  <figure class="rv">
-    <video src="media/waymo_gap_3panel.mp4" muted loop playsinline preload="metadata" controls></video>
-    <div class="panels"><span>source</span><span>reconstruction, what we train on</span><span>a strong edit, what we meet</span></div>
-  </figure>
 </section>
 
 <!-- 13 PLAN -->
