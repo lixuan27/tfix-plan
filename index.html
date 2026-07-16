@@ -115,11 +115,15 @@ g.hit.on text{fill:var(--card)}
 .branch.open>.bh .caret{transform:rotate(90deg)}
 .branch>.bb{display:none;padding-bottom:10px}
 .branch.open>.bb{display:block}
+.golink{position:fixed;top:14px;right:18px;z-index:70;font-size:17px;font-weight:700;color:var(--ink);
+  text-decoration:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:8px 16px}
+.golink:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 footer{padding:90px 28px 120px;text-align:center;border-top:3px solid var(--ink);margin-top:80px}
 </style>
 </head>
 <body>
 <div id="bar"></div>
+<a class="golink" href="showcase.html">Results &rsaquo;</a>
 
 <div id="flow"><div class="w">
   <div class="n" data-m="edit">Image editor</div><span class="a">&rsaquo;</span>
